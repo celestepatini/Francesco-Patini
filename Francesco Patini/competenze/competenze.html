@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Francesco Patini | Chi sono</title>
+    <title>Francesco Patini</title>
     <link rel="stylesheet" href="../static/css/francesco patini.css">
     <meta name="description" content="Francesco Patini è un avvocato di Udine">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <header>
     <div class="container head">
@@ -37,19 +38,23 @@
 </header>
 
 <body>
-    <div class="flex-container">
-        <div class="flexbox" id="flex-chi-sono">
 
-            <img class="chi-sono-img" alt="Francesco Patini" src="../static/assets/fr.jpg">
+
+    <div class="flex-container">
+        <div class="flexbox" id="flexbox1">
+
+            <img class="competenze-img" alt="Competenze" src="../static/assets/law-books.png">
         </div>
         <div class="flexbox" id="flexbox2">
 
+            <h2>Competenze</h2>
             <p>
-                Nato a Udine nel 1966, ho sempre avuto una passione per la Legge. Mi sono laureato all'università di Udine nel
+                Mi occupo principalmente di diritto civile.
             </p>
         </div>
     </div>
 </body>
+
 <footer>
     <div class="footer-text">
         <div class="footer p-iva">
@@ -67,6 +72,8 @@
 </footer>
 <script>
     // Select dom items
+    const flex = document.querySelector(".flex-container");
+
     const menuBt = document.querySelector(".menu-bt");
 
     const menu =
@@ -86,6 +93,7 @@
     function toggleMenu() {
         if (!showMenu) {
             menuBt.classList.add("close");
+            flex.classList.add("hidden");
             menu.classList.remove("nascosto");
             menu.classList.add("show");
             ul.classList.add("show");
@@ -97,6 +105,7 @@
         } else {
             menuBt.classList.remove("close");
             menu.classList.add("nascosto");
+            flex.classList.remove("hidden");
             menu.classList.remove("show");
             ul.classList.remove("show");
             li.forEach((item) =>
