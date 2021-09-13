@@ -125,6 +125,7 @@ h2 {
     background-color: black;
     padding-top: 50px;
     font-size: 20px;
+    padding-left: 100px;
 }
 
 .hidden {
@@ -136,7 +137,7 @@ li {
     z-index: 5;
 }
 
-li:hover {
+a:hover {
     color: #8B1D1D;
 }
 
@@ -293,6 +294,7 @@ iframe {
         background-color: black;
         padding-top: 50px;
         font-size: 20px;
+        padding-left: 0px !important;
     }
     .logo {
         align-items: center;
