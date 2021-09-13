@@ -24,7 +24,7 @@
     <h2>
         Avvocato
     </h2>
-    <div class="menu nascosto">
+    <div class="menu hidden desktop">
         <ul>
             <li><a href="../chi sono/chi-sono.html"> Chi sono </a></li>
             <li><a href="../lo studio/lo-studio.html"> Lo studio </a>
@@ -86,7 +86,7 @@
     function toggleMenu() {
         if (!showMenu) {
             menuBt.classList.add("close");
-            menu.classList.remove("nascosto");
+            menu.classList.remove("hidden");
             menu.classList.add("show");
             ul.classList.add("show");
             li.forEach((item) =>
@@ -96,7 +96,7 @@
             showMenu = true;
         } else {
             menuBt.classList.remove("close");
-            menu.classList.add("nascosto");
+            menu.classList.add("hidden");
             menu.classList.remove("show");
             ul.classList.remove("show");
             li.forEach((item) =>

@@ -114,8 +114,17 @@ h2 {
     position: relative;
 }
 
-.menu.nascosto {
-    display: none;
+.menu.desktop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    padding-top: 50px;
+    font-size: 20px;
 }
 
 .hidden {
@@ -128,7 +137,6 @@ li {
 }
 
 li:hover {
-    transform: scale(1.5, 1.5);
     color: #8B1D1D;
 }
 
@@ -269,6 +277,7 @@ iframe {
 
 .show {
     display: block;
+    font-size: 30px;
 }
 
 @media only screen and (max-width: 980px) {
@@ -299,6 +308,9 @@ iframe {
         margin: 15px;
         position: relative;
     }
+    .container.head {
+        width: auto;
+    }
     html {
         width: auto;
     }
@@ -312,7 +324,7 @@ iframe {
         height: 39px;
     }
     .main-img {
-        width: 30%;
+        width: 70%;
     }
     body {
         width: auto;
@@ -334,6 +346,7 @@ iframe {
     }
     .container.image {
         position: relative;
+        width: auto;
     }
     .flex-container {
         flex-direction: column;
