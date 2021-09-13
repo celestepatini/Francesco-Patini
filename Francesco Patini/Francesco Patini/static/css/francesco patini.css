@@ -1,0 +1,400 @@
+html {
+    background-color: black;
+    width: 980px;
+    font-family: 'Merriweather', serif;
+    margin: 0 auto;
+}
+
+header {
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+.container.head {
+    width: 600px;
+    box-sizing: border-box;
+}
+
+.menu-bt {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    top: 16px;
+    right: 15px;
+    width: 34px;
+    height: 39px;
+    transition: all 0.5s ease-out;
+}
+
+.web {
+    display: inline-block !important;
+    top: 50px;
+    right: 100px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.menu-bt.close {
+    transform: rotate(180deg);
+}
+
+.line {
+    --bg-opacity: 1;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, var(--bg-opacity));
+    height: 2px;
+    margin-bottom: 10px;
+    border-radius: 1px;
+    transition: transform 0.5s ease-out;
+}
+
+.menu-bt.close .line:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 7px);
+}
+
+.menu-bt.close .line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-bt.close .line:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -7px);
+}
+
+li {
+    transition: opacity 0.5s ease-out;
+}
+
+
+/**animation fade in forwards **/
+
+
+/**li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+li:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+li:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+li:nth-child(4) {
+    transition-delay: 0.4s;
+}**/
+
+a {
+    text-decoration: none;
+    color: rgba(256, 256, 256, 0.8);
+}
+
+.logo {
+    font-size: 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    z-index: 2;
+}
+
+h2 {
+    color: #8B1D1D;
+    z-index: 2;
+}
+
+.menu {
+    font-size: 20px;
+    width: 200px;
+    margin: 100px 0px 0px 0px;
+    box-sizing: border-box;
+    z-index: 4;
+    display: inline-block;
+    position: relative;
+}
+
+.menu.desktop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+li {
+    padding: 10px;
+    z-index: 5;
+}
+
+li:hover {
+    color: #8B1D1D;
+}
+
+.container.image {
+    width: 940px;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+}
+
+.main-img {
+    width: 70%;
+    z-index: 1;
+    top: -50px;
+}
+
+.chi-sono-img {
+    width: 70%;
+}
+
+.competenze-img {
+    width: 70%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description {
+    width: 300px;
+    box-sizing: border-box;
+    z-index: 3;
+    position: absolute;
+    top: 160px;
+    right: 150px;
+    margin: 100px 0px 0px 100px;
+}
+
+p {
+    font-size: 20px;
+    text-align: justify;
+    color: rgba(256, 256, 256, 0.8);
+}
+
+.flex-container {
+    display: flex;
+    flex: 100%;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-container-contatti {
+    display: flex;
+    flex: 100%;
+    margin-top: 50px;
+}
+
+.flex1 {
+    flex: 50%;
+}
+
+#flexbox1,
+#flexbox2 {
+    padding: 15px;
+}
+
+.menu-contatti {
+    font-size: 18px;
+    width: 150px;
+    margin: 0px 0px 0px 0px;
+    box-sizing: border-box;
+    z-index: 3;
+    display: inline-block;
+    position: relative;
+}
+
+form {
+    color: #8B1D1D;
+}
+
+.content-form {
+    background-color: black;
+}
+
+#p-form {
+    color: rgba(256, 256, 256, 0.8);
+}
+
+input[type=text],
+input[type=email],
+textarea {
+    border: 1px solid rgba(256, 256, 256, 0.8);
+    border-radius: 5px;
+    background-color: black;
+    color: rgba(256, 256, 256, 0.8);
+    width: 100%;
+    resize: none;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    background-color: black;
+    color: rgba(256, 256, 256, 0.8);
+    border: 1px solid rgba(256, 256, 256, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.error {
+    display: none;
+}
+
+.display {
+    display: block;
+    color: #8B1D1D;
+    background-color: black;
+}
+
+.footer-text {
+    color: rgba(256, 256, 256, 0.8);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.footer {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+iframe {
+    margin-top: 30px;
+}
+
+.show {
+    display: block;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 980px) {
+    .menu {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        padding-top: 50px;
+        font-size: 20px;
+    }
+    .logo {
+        align-items: center;
+        width: auto;
+        font-size: 20px;
+    }
+    img {
+        max-width: 100%;
+        vertical-align: middle;
+    }
+    .container {
+        width: auto;
+        margin: 15px;
+        position: relative;
+    }
+    .container.head {
+        width: auto;
+    }
+    html {
+        width: auto;
+    }
+    .menu-bt {
+        display: inline-block !important;
+    }
+    .web {
+        top: 16px;
+        right: 15px;
+        width: 34px;
+        height: 39px;
+    }
+    .main-img {
+        width: 70%;
+    }
+    body {
+        width: auto;
+        margin: 0;
+    }
+    header {
+        margin: auto;
+    }
+    .description {
+        margin: 15px;
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: auto;
+    }
+    h2 {
+        margin: 15px;
+    }
+    .container.image {
+        position: relative;
+        width: auto;
+    }
+    .flex-container {
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .flexbox {
+        margin: 15px;
+    }
+    .footer-text {
+        margin: auto;
+        text-align: center;
+    }
+    .flex1,
+    .menu-contatti {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 100px 0px 0px 0px;
+        background-color: black;
+        padding-top: 50px;
+        font-size: 20px;
+    }
+    .competenze-img {
+        width: 350px;
+        height: 400px;
+    }
+    .content-form {
+        padding: 15px;
+    }
+    iframe {
+        width: auto;
+    }
+    li:hover {
+        transform: none;
+        color: #8B1D1D;
+    }
+    li {
+        opacity: 0;
+    }
+    .show {
+        display: block;
+    }
+    li.show {
+        opacity: 1;
+    }
+}

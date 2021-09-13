@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Francesco Patini</title>
+    <link rel="stylesheet" href="../static/css/francesco patini.css">
+    <meta name="description" content="Francesco Patini è un avvocato di Udine">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<header>
+    <div class="container head">
+        <a href="../index.html" class="logo"> francesco &emsp; patini </a>
+    </div>
+    <nav class="menu-bt clickable web">
+        <div class="line"> </div>
+        <div class="line"> </div>
+        <div class="line"> </div>
+    </nav>
+    <h2>
+        Avvocato
+    </h2>
+    <div class="menu hidden desktop ">
+        <ul>
+            <li><a href="../chi sono/chi-sono.html"> Chi sono </a></li>
+            <li><a href="../lo studio/lo-studio.html"> Lo studio </a>
+            </li>
+            <li><a href="../competenze/competenze.html"> Competenze </a></li>
+            <li><a href="../contatti/contatti.html"> Contatti </a></li>
+        </ul>
+
+    </div>
+</header>
+
+<body>
+    <div class="flex-container" id="flex-container">
+        <div class="flexbox">
+
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2768.501987860164!2d13.23476701554314!3d46.06103090144114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477a4aa938254bf3%3A0x56f83d38ebe9d5c5!2sPatini%20Francesco!5e0!3m2!1sit!2sit!4v1630053073226!5m2!1sit!2sit"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="flexbox" id="flexbox2">
+            <h2>Lo studio</h2>
+            <p>
+                Lo studio si trova in via Savorgnana 19 a Udine; è situato vicino al Tribunale nella zona centrale della città.
+
+            </p>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="footer-text">
+        <div class="footer p-iva">
+            P.I. 845093450250
+        </div>
+        <div class="footer telefono">
+
+            <a href="0432 25465">0432 25465</a>
+        </div>
+        <div class="footer email">
+
+            <a href="francesco@patini.it">francesco@patini.it</a>
+        </div>
+    </div>
+</footer>
+<script>
+    // Select dom items
+    const flex = document.querySelector(".flexbox");
+
+    const menuBt = document.querySelector(".menu-bt");
+
+    const menu =
+        document.querySelector(".menu");
+
+    const ul =
+        document.querySelector("ul");
+
+    const li =
+        document.querySelectorAll("li");
+
+    // Set the initial state of the menu
+    let showMenu = false;
+
+    menuBt.addEventListener("click", toggleMenu);
+
+    function toggleMenu() {
+        if (!showMenu) {
+            menuBt.classList.add("close");
+            flex.classList.add("hidden");
+            menu.classList.remove("hidden");
+            menu.classList.add("show");
+            ul.classList.add("show");
+            li.forEach((item) =>
+                item.classList.add("show"));
+
+            // Reset the menu state
+            showMenu = true;
+        } else {
+            menuBt.classList.remove("close");
+            flex.classList.remove("hidden");
+            menu.classList.add("hidden");
+            menu.classList.remove("show");
+            ul.classList.remove("show");
+            li.forEach((item) =>
+                item.classList.remove("show"));
+
+            // Reset the menu state
+            showMenu = false;
+        }
+    }
+</script>
+
+
+</html>

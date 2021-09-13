@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Francesco Patini</title>
+    <link rel="stylesheet" href="./static/css/francesco patini.css">
+    <meta name="description" content="Francesco Patini è un avvocato di Udine">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+<header>
+
+    <div class="container head">
+        <a href="./index.html" class="logo"> francesco &emsp; patini </a>
+    </div>
+    <nav class="menu-bt clickable">
+        <div class="line"> </div>
+        <div class="line"> </div>
+        <div class="line"> </div>
+    </nav>
+    <h2>
+        Avvocato
+    </h2>
+
+
+</header>
+
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="chi sono/chi-sono.html"> Chi sono </a></li>
+            <li><a href="lo studio/lo-studio.html"> Lo studio </a>
+            </li>
+            <li><a href="competenze/competenze.html"> Competenze </a></li>
+            <li><a href="contatti/contatti.html"> Contatti </a></li>
+        </ul>
+
+    </div>
+
+</body>
+
+<div class="container image">
+    <img class="main-img" alt="Francesco Patini" src="./static/assets/primopiano-.png">
+</div>
+
+<div class="description">
+    <p>
+        just some random text and description until i find something decent to write
+    </p>
+</div>
+<script>
+    // Select dom items
+    const menuBt = document.querySelector(".menu-bt");
+
+    const menu =
+        document.querySelector(".menu");
+
+    const ul =
+        document.querySelector("ul");
+
+    const li =
+        document.querySelectorAll("li");
+
+    // Set the initial state of the menu
+    let showMenu = false;
+
+    menuBt.addEventListener("click", toggleMenu);
+
+    function toggleMenu() {
+        if (!showMenu) {
+            menuBt.classList.add("close");
+            menu.classList.add("show");
+            ul.classList.add("show");
+            li.forEach((item) =>
+                item.classList.add("show"));
+
+            // Reset the menu state
+            showMenu = true;
+        } else {
+            menuBt.classList.remove("close");
+            menu.classList.remove("show");
+            ul.classList.remove("show");
+            li.forEach((item) =>
+                item.classList.remove("show"));
+
+            // Reset the menu state
+            showMenu = false;
+        }
+    }
+</script>
+
+</html>
