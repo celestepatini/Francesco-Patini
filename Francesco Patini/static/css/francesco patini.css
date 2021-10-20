@@ -10,6 +10,186 @@ header {
     box-sizing: border-box;
 }
 
+
+/* CONFIRMATION MODAL*/
+
+.close {
+    position: absolute;
+    right: 10vw;
+    margin-top: -3vh;
+    font-size: 35px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.modal-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-content {
+    background-color: #020202;
+    margin: 5% auto 15% auto;
+    border: 1 px solid #888;
+    width: 80%;
+}
+
+.modal-content.show {
+    display: block;
+}
+
+.ok-button {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #bbbbbb;
+    border-radius: 4px;
+    border: 1px black solid;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.close {
+    cursor: pointer;
+}
+
+
+/* LOADER SPINNER*/
+
+.loaderspinner {
+    z-index: 98;
+    background-color: black;
+    position: absolute;
+    display: none;
+    width: 100vw;
+    height: 95vh;
+}
+
+.loader {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 200px;
+    z-index: 99;
+}
+
+.loader-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.spinner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    animation: rotate0 6s infinite linear, resize 6s infinite linear;
+}
+
+.hex0,
+.hex120,
+.hex240 {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 55%;
+    left: 0;
+    top: 20%;
+    border-left: 2px solid #8B1D1D;
+    border-right: 2px solid #8B1D1D;
+}
+
+.hex0 {
+    animation: rotate0 infinite 6s linear;
+}
+
+.hex120 {
+    transform: rotate(120deg);
+    animation: rotate120 6s infinite linear;
+}
+
+.hex240 {
+    transform: rotate(240deg);
+    animation: rotate240 6s infinite linear;
+}
+
+@keyframes rotate0 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate120 {
+    0% {
+        transform: rotate(120deg);
+    }
+    100% {
+        transform: rotate(480deg);
+    }
+}
+
+@keyframes rotate240 {
+    0% {
+        transform: rotate(240deg);
+    }
+    100% {
+        transform: rotate(600deg);
+    }
+}
+
+@keyframes resize {
+    0%,
+    33.33%,
+    66.66%,
+    100% {
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+    }
+    16.66%,
+    49.99%,
+    83.333% {
+        width: 70%;
+        height: 70%;
+        left: 15%;
+        top: 15%;
+    }
+}
+
+
+/*END OF LOADER SPINNER*/
+
 .container.head {
     width: 600px;
     box-sizing: border-box;
@@ -63,14 +243,12 @@ header {
 }
 
 li {
-    transition: opacity 0.5s ease-out;
+    padding: 10px;
+    z-index: 5;
+    /* transition: opacity 0.5s ease-out;*/
 }
 
-
-/**animation fade in forwards **/
-
-
-/**li:nth-child(1) {
+li:nth-child(1) {
     transition-delay: 0.1s;
 }
 
@@ -84,7 +262,7 @@ li:nth-child(3) {
 
 li:nth-child(4) {
     transition-delay: 0.4s;
-}**/
+}
 
 a {
     text-decoration: none;
@@ -97,6 +275,10 @@ a {
     text-transform: uppercase;
     letter-spacing: 4px;
     z-index: 2;
+}
+
+li.show {
+    opacity: 1
 }
 
 h2 {
@@ -126,15 +308,18 @@ h2 {
     padding-top: 50px;
     font-size: 20px;
     padding-left: 100px;
+    transition: opacity .5s linear;
 }
 
 .hidden {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
-li {
-    padding: 10px;
-    z-index: 5;
+.show {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 a:hover {
@@ -172,7 +357,7 @@ a:hover {
     z-index: 3;
     position: absolute;
     top: 160px;
-    right: 150px;
+    right: 8vw;
     margin: 100px 0px 0px 100px;
 }
 
@@ -215,7 +400,7 @@ p {
     position: relative;
 }
 
-form {
+#form {
     color: #8B1D1D;
 }
 
@@ -276,14 +461,9 @@ iframe {
     margin-top: 30px;
 }
 
-.show {
-    display: block;
-    font-size: 30px;
-}
-
 @media only screen and (max-width: 980px) {
     .menu {
-        display: none;
+        opacity: 0;
         position: fixed;
         width: 100%;
         height: 100%;
@@ -361,9 +541,24 @@ iframe {
         margin: auto;
         text-align: center;
     }
-    .flex1,
+    .flex1 {
+        opacity: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 100px 0px 0px 0px;
+        background-color: black;
+        padding-top: 50px;
+        font-size: 20px;
+        pointer-events: none;
+    }
     .menu-contatti {
-        display: none;
+        pointer-events: none;
+        opacity: 0;
         position: fixed;
         width: 100%;
         height: 100%;
@@ -394,9 +589,20 @@ iframe {
         opacity: 0;
     }
     .show {
-        display: block;
+        opacity: 1;
+        pointer-events: auto;
     }
     li.show {
         opacity: 1;
+    }
+    .loader {
+        margin-left: 40%;
+        margin-top: 20vh;
+    }
+    .modal-content {
+        margin-top: 100px;
+    }
+    #close {
+        margin-top: 120px;
     }
 }

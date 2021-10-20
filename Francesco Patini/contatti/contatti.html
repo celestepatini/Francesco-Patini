@@ -13,7 +13,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
 
 </head>
+<div class="loaderspinner" id="loaderspinner">
+    <div class="loader">
+        <div class="spinner">
+            <div class="loader-container">
+                <div class="hex0"></div>
+                <div class="hex120"></div>
+                <div class="hex240"></div>
 
+                <div class="spinner">
+                    <div class="loader-container">
+                        <div class="hex0"></div>
+                        <div class="hex120"></div>
+                        <div class="hex240"></div>
+
+                        <div class="spinner">
+                            <div class="loader-container">
+                                <div class="hex0"></div>
+                                <div class="hex120"></div>
+                                <div class="hex240"></div>
+
+                                <div class="spinner">
+                                    <div class="loader-container">
+                                        <div class="hex0"></div>
+                                        <div class="hex120"></div>
+                                        <div class="hex240"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <header>
     <div class="container head">
         <a href="../index.html" class="logo"> francesco &emsp; patini </a>
@@ -39,25 +73,36 @@
 
             </div>
         </div>
+        <div class="notification-banner" id="notification-banner"></div>
+        <div class="modal" id="modal">
+
+            <div class="modal-content" id="modal-content">
+                <div class="modal-container">
+                    <span class="close" id="close">&times;</span>
+                    <h2 class="confirmation-message">
+                        Grazie, verrà ricontattata al più presto.
+                    </h2>
+                    <div class="submission-details">
+                        <p>Nome e Cognome: <span id="usernamePreview"></span></p>
+                        <p>Email: <span id="emailPreview"></span></p>
+                    </div>
+                    <div class="ok-button" id="ok-button">OK</div>
+                </div>
+            </div>
+        </div>
 
         <div class="content-form">
             <p id="p-form">
                 Sono a Sua disposizione per aiutarla con una consulenza Legale. <br> Compili il form qui sotto e La ricontatterò al più presto.
             </p>
             <div class="form">
-                <form action="index.php">
+                <form id="form">
                     Nome e Cognome: <input type="text" name="nome" minlength="2" maxlength="60" id="nome">
-                </form> <br>
+                    <br> Email: <input type="email" name="email" minlength="2" maxlength="60" id="email">
+                    <br> Messaggio: <textarea name="message" rows="5" cols="30" id="messaggio"> </textarea>
+                    <br>
+                    <span class="error"></span> <br>
 
-                <form action="index.php">
-                    Email: <input type="email" name="email" minlength="2" maxlength="60" id="email">
-                </form><br>
-
-                <form action="index.php">
-                    Messaggio: <textarea name="message" rows="5" cols="30" id="messaggio"> </textarea>
-                </form><br>
-                <span class="error"></span> <br>
-                <form action="index.php">
                     <input type="submit" value="Invio" name="submit" id="submit">
                 </form>
             </div>
@@ -188,32 +233,101 @@
         const nome = document.getElementById("nome").value;
         const email = document.getElementById("email").value;
         const messaggio = document.getElementById("messaggio").value;
+        var i;
 
         if (isValidForm()) {
-            alert("Grazie");
+            showConfirmModal(nome, email);
+
+        }
+    }
+
+    function showLoader() {
+        document.getElementById("loaderspinner").classList.add("show");
+    }
+
+    function hideLoader() {
+        document.getElementById("loaderspinner").classList.remove("show");
+    }
+
+    function getConfirmModalElement() {
+        return document.getElementById("modal");
+    }
+
+    function showConfirmModal(nome, email) {
+        document.getElementById("usernamePreview").textContent = nome;
+        document.getElementById("emailPreview").textContent = email;
+
+        const modal = getConfirmModalElement();
+        modal.classList.add("show");
+    }
+
+    function hideConfirmModal() {
+        const modal = getConfirmModalElement();
+        modal.classList.remove("show");
+        if (event.target == modal) {
+            modal.classList.remove("show");
+        }
+    }
+
+    function sendRequest(event) {
+        didSubmitForm = true;
+
+        event.preventDefault();
+        if (isValidForm()) {
+
+            showLoader();
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            var formElement = document.getElementById("form");
+            const formData = new FormData(formElement);
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", 'https://webmaster.matteobiasi.it/wif/', true);
+
+
+            xhr.onreadystatechange =
+                function() {
+
+                    if (this.readyState === XMLHttpRequest.DONE) {
+                        hideLoader()
+                        switch (this.status) {
+                            case 200:
+                                const responseObj = JSON.parse(xhr.responseText);
+                                if (responseObj.success) {
+                                    showConfirmModal(nome, email);
+                                } else {
+                                    alert("Spiacenti, si è verificato un errore nel form.")
+                                }
+                                break;
+                            default:
+                                alert("Si è verificato un errore, provare più tardi.")
+                                break;
+                        }
+
+                    }
+                }
+            xhr.send(formData);
+
 
         }
     }
 
 
-
-
-
-    // Add event listeners
-
     const nome = document.getElementById("nome");
     const email = document.getElementById("email");
     const messaggio = document.getElementById("messaggio");
     const invio = document.getElementById("submit");
+    const okButton = document.getElementById("ok-button");
+    const close = document.getElementById("close");
+    const modal = getConfirmModalElement();
 
 
 
     nome.addEventListener("input", isValidForm);
     email.addEventListener("input", isValidForm);
-    invio.addEventListener("click", (event) => {
-        event.preventDefault();
-        submitForm();
-    });
+    invio.addEventListener("click", sendRequest);
+    okButton.addEventListener("click", hideConfirmModal);
+    close.addEventListener("click", hideConfirmModal);
 </script>
 
 </html>

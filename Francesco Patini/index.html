@@ -14,7 +14,41 @@
 
 
 </head>
+<!-- <div class="loaderspinner" id="loaderspinner"> 
+    <div class="loader">
+        <div class="spinner">
+            <div class="loader-container">
+                <div class="hex0"></div>
+                <div class="hex120"></div>
+                <div class="hex240"></div>
 
+                <div class="spinner">
+                    <div class="loader-container">
+                        <div class="hex0"></div>
+                        <div class="hex120"></div>
+                        <div class="hex240"></div>
+
+                        <div class="spinner">
+                            <div class="loader-container">
+                                <div class="hex0"></div>
+                                <div class="hex120"></div>
+                                <div class="hex240"></div>
+
+                                <div class="spinner">
+                                    <div class="loader-container">
+                                        <div class="hex0"></div>
+                                        <div class="hex120"></div>
+                                        <div class="hex240"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
 
 <header>
 
@@ -33,7 +67,9 @@
 
 </header>
 
-<body>
+<body onload="showLoader()">
+
+
     <div class="menu">
         <ul>
             <li><a href="chi sono/chi-sono.html"> Chi sono </a></li>
@@ -56,6 +92,7 @@
         just some random text and description until i find something decent to write
     </p>
 </div>
+
 <script>
     // Select dom items
     const menuBt = document.querySelector(".menu-bt");
